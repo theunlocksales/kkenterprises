@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details - KK Enterprises</title>
+    <meta name="description" content="View detailed information about this property including photos, videos, amenities, and pricing">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Additional styles for property detail page */
+        .property-detail-hero {
+            padding-top: 100px;
+            background: var(--bg-light);
+        }
+
+        .media-gallery {
+            margin-bottom: 40px;
+        }
+
+        .main-media-container {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-bottom: 20px;
+            background: #000;
+        }
+
+        .main-media {
+            width: 100%;
+            height: 600px;
+            object-fit: contain;
+            background: #000;
+        }
+
+        .media-navigation {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            pointer-events: none;
+        }
+
+        .media-nav-btn {
+            pointer-events: all;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            font-size: 20px;
+            color: var(--primary-blue);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .media-nav-btn:hover {
+            background: var(--white);
+            transform: scale(1.1);
+        }
+
+        .media-counter {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .media-type-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--primary-blue);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .thumbnail-item {
+            position: relative;
+            height: 100px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: var(--transition);
+        }
+
+        .thumbnail-item.active {
+            border-color: var(--primary-blue);
+        }
+
+        .thumbnail-item:hover {
+            transform: scale(1.05);
+        }
+
+        .thumbnail-item img,
+        .thumbnail-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnail-item .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 35px;
+            height: 35px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--primary-blue);
+        }
+
+        .property-header-detail {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .property-title-section h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .property-location-detail {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-gray);
+            font-size: 16px;
+        }
+
+        .property-price-section {
+            text-align: right;
+        }
+
+        .price-amount {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+
+        .price-label {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        .property-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 30px;
+        }
+
+        .highlight-item {
+            text-align: center;
+        }
+
+        .highlight-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 10px;
+            background: rgba(0, 102, 204, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: var(--primary-blue);
+        }
+
+        .highlight-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .highlight-label {
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        .property-content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .detail-section {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 30px;
+        }
+
+        .detail-section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .detail-section p {
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .amenity-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            background: var(--bg-light);
+            border-radius: var(--radius);
+        }
+
+        .amenity-item i {
+            color: var(--primary-blue);
+            font-size: 18px;
+        }
+
+        .amenity-item span {
+            font-size: 14px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .info-value {
+            color: var(--text-gray);
+            text-align: right;
+        }
+
+        .contact-sidebar {
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            margin-bottom: 20px;
+        }
+
+        .sidebar-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .contact-btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            text-decoration: none;
+        }
+
+        .btn-call {
+            background: var(--gradient-blue);
+            color: white;
+            border: none;
+        }
+
+        .btn-call:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            border: none;
+        }
+
+        .btn-whatsapp:hover {
+            background: #20ba5a;
+            transform: translateY(-2px);
+        }
+
+        .btn-email {
+            background: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-email:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .agent-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            margin-top: 20px;
+        }
+
+        .agent-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .agent-details h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 3px;
+        }
+
+        .agent-details p {
+            font-size: 13px;
+            color: var(--text-gray);
+            margin: 0;
+        }
+
+        .property-status {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #2ecc71;
+            color: white;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .property-status.sold {
+            background: #e74c3c;
+        }
+
+        .property-status.rented {
+            background: #f39c12;
+        }
+
+        .nearby-places {
+            margin-top: 20px;
+        }
+
+        .place-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .place-item:last-child {
+            border-bottom: none;
+        }
+
+        .place-name {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .place-name i {
+            color: var(--primary-blue);
+        }
+
+        .place-distance {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-media {
+                height: 300px;
+            }
+
+            .property-content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-sidebar {
+                position: static;
+            }
+
+            .property-title-section h1 {
+                font-size: 24px;
+            }
+
+            .price-amount {
+                font-size: 28px;
+            }
+
+            .thumbnail-grid {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            }
+
+            .thumbnail-item {
+                height: 70px;
+            }
+
+            .property-highlights {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/919111431431?text=Hi%20KK%20Enterprises,%20I'm%20interested%20in%20this%20property" 
+       class="whatsapp-float" 
+       target="_blank" 
+       aria-label="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header class="header scrolled" id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">KK</div>
+                <div class="logo-text">
+                    <div class="logo-name">KK Enterprises</div>
+                    <div class="logo-tagline">Your Property Partner</div>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#properties" class="nav-link">Properties</a>
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="tel:+919111431431" class="header-phone">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+91 91114 31431</span>
+                </a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Property Detail Section -->
+    <section class="property-detail-hero section-padding">
+        <div class="container">
+            <a href="index.html#properties" class="btn-outline" style="margin-bottom: 20px; display: inline-flex;">
+                <i class="fas fa-arrow-left"></i> Back to Properties
+            </a>
+
+            <!-- Media Gallery with Multiple Photos/Videos -->
+            <div class="media-gallery" data-aos="fade-up">
+                <div class="main-media-container">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200" 
+                         alt="Property Image" 
+                         class="main-media" 
+                         id="mainMedia">
+
+                    <div class="media-type-badge" id="mediaTypeBadge">
+                        <i class="fas fa-image"></i> Photo
+                    </div>
+
+                    <div class="media-navigation">
+                        <button class="media-nav-btn" id="prevMedia" aria-label="Previous">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="media-nav-btn" id="nextMedia" aria-label="Next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <div class="media-counter">
+                        <span id="currentMedia">1</span> / <span id="totalMedia">12</span>
+                    </div>
+                </div>
+
+                <!-- Thumbnails - Support for Multiple Photos & Videos -->
+                <div class="thumbnail-grid" id="thumbnailGrid">
+                    <!-- Photo Thumbnails -->
+                    <div class="thumbnail-item active" data-type="image" data-src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200">
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=200" alt="Thumbnail 1">
+                    </div>
+                    <div class="thumbnail-item" data-type="image" data-src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200">
+                        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=200" alt="Thumbnail 2">
+                    </div>
+                    <div class="thumbnail-item" data-type="image" data-src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=200" alt="Thumbnail 3">
+                    </div>
+                    <div class="thumbnail-item" data-type="image" data-src="https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=1200">
+                        <img src="https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=200" alt="Thumbnail 4">
+                    </div>
+
+                    <!-- Video Thumbnails -->
+                    <div class="thumbnail-item" data-type="video" data-src="https://cdn.pixabay.com/video/2022/11/07/138581-769570488_large.mp4">
+                        <img src="https://images.unsplash.com/photo-1560184897-ae75f418493e?w=200" alt="Video 1">
+                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="thumbnail-item" data-type="video" data-src="https://cdn.pixabay.com/video/2021/08/25/86339-593347626_large.mp4">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=200" alt="Video 2">
+                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                    </div>
+
+                    <!-- More Photos -->
+                    <div class="thumbnail-item" data-type="image" data-src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200">
+                        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=200" alt="Thumbnail 5">
+                    </div>
+                    <div class="thumbnail-item" data-type="image" data-src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=1200">
+                        <img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=200" alt="Thumbnail 6">
+                    </div>
+                    <div class="thumbnail-item" data-type="image" data-src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=200" alt="Thumbnail 7">
+                    </div>
+                    <div class="thumbnail-item" data-type="image" data-src="https://images.unsplash.com/photo-1556912167-f556f1f39faa?w=1200">
+                        <img src="https://images.unsplash.com/photo-1556912167-f556f1f39faa?w=200" alt="Thumbnail 8">
+                    </div>
+
+                    <!-- Another Video -->
+                    <div class="thumbnail-item" data-type="video" data-src="https://cdn.pixabay.com/video/2020/05/01/36989-415128716_large.mp4">
+                        <img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455?w=200" alt="Video 3">
+                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                    </div>
+
+                    <!-- More Photos -->
+                    <div class="thumbnail-item" data-type="image" data-src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200">
+                        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=200" alt="Thumbnail 9">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Property Header -->
+            <div class="property-header-detail" data-aos="fade-up">
+                <div class="property-title-section">
+                    <span class="property-status">Available</span>
+                    <h1>Luxurious 3BHK Apartment in Vijay Nagar</h1>
+                    <div class="property-location-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Scheme No. 54, Vijay Nagar, Indore, Madhya Pradesh</span>
+                    </div>
+                </div>
+                <div class="property-price-section">
+                    <div class="price-amount">₹75,00,000</div>
+                    <div class="price-label">₹5,172 per sq.ft</div>
+                </div>
+            </div>
+
+            <!-- Property Highlights -->
+            <div class="property-highlights" data-aos="fade-up">
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <div class="highlight-value">3</div>
+                    <div class="highlight-label">Bedrooms</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-bath"></i>
+                    </div>
+                    <div class="highlight-value">2</div>
+                    <div class="highlight-label">Bathrooms</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-vector-square"></i>
+                    </div>
+                    <div class="highlight-value">1,450</div>
+                    <div class="highlight-label">Sq. Ft. Area</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="highlight-value">2</div>
+                    <div class="highlight-label">Parking</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="highlight-value">7th</div>
+                    <div class="highlight-label">Floor</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <div class="highlight-value">East</div>
+                    <div class="highlight-label">Facing</div>
+                </div>
+            </div>
+
+            <!-- Property Content Grid -->
+            <div class="property-content-grid">
+                <!-- Main Content -->
+                <div class="main-content">
+                    <!-- Description -->
+                    <div class="detail-section" data-aos="fade-up">
+                        <h2>Property Description</h2>
+                        <p>
+                            Welcome to this stunning 3BHK luxury apartment located in the heart of Vijay Nagar, 
+                            one of Indore's most prestigious residential areas. This spacious 1,450 sq.ft property 
+                            offers contemporary design, premium finishes, and breathtaking views.
+                        </p>
+                        <p>
+                            The apartment features a modern open-plan living and dining area, well-appointed bedrooms 
+                            with built-in wardrobes, stylish bathrooms with premium fixtures, and a fully equipped 
+                            modular kitchen. Large windows ensure natural light throughout the day, creating a bright 
+                            and welcoming atmosphere.
+                        </p>
+                        <p>
+                            Located in a well-maintained society with 24/7 security, power backup, and recreational 
+                            facilities. This property is perfect for families looking for comfort, convenience, and 
+                            a premium lifestyle in Indore's prime location.
+                        </p>
+                        <p>
+                            The locality offers excellent connectivity to major commercial hubs, educational institutions, 
+                            hospitals, shopping centers, and entertainment zones. With easy access to the main roads, 
+                            commuting to any part of the city is hassle-free.
+                        </p>
+                    </div>
+
+                    <!-- Property Details -->
+                    <div class="detail-section" data-aos="fade-up">
+                        <h2>Property Details</h2>
+                        <ul class="info-list">
+                            <li>
+                                <span class="info-label">Property Type</span>
+                                <span class="info-value">Residential Apartment</span>
+                            </li>
+                            <li>
+                                <span class="info-label">Property Status</span>
+                                <span class="info-value">Ready to Move</span>
+                            </li>
+                            <li>
+                                <span class="info-label">Total Area</span>
+                                <span class="info-value">1,450 Sq. Ft.</span>
+                            </li>
+                            <li>
+                                <span class="info-label">Bedrooms</span>
+                                <span class="info-value">3 BHK</span>
+                            </li>
+                            <li>
+                                <span class="info-label">Bathrooms</span>
+                                <span class="info-value">2</span>
+                            </li>
+                            <li>
+                                <span class="info-label">Balconies</span>
+                                <span class="info-value">2</span>
+                            </li>
+                            <li>
+                                <span class="info-label">Floor Number</span>
+                                <span class="info-value">7th Floor of 12</span>
+                            </li>
+                            <li>
+                                <span class="info-label">Facing Direction</span>
+                                <span class="info-value">East</span>
+                            </li>
+                            <li>
+                                <span class="info-label">Furnishing Status</span>
+                                <span class="info-value">Semi-Furnished</span>
+                            </li>
+                            <li>
+                                <span class="info-label">Car Parking</span>
+                                <span class="info-value">2 Covered Parking</span>
+                            </li>
+                            <li>
+                                <span class="info-label">Age of Property</span>
+                                <span class="info-value">2 Years</span>
+                            </li>
+                            <li>
+                                <span class="info-label">Transaction Type</span>
+                                <span class="info-value">New Sale</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Amenities -->
+                    <div class="detail-section" data-aos="fade-up">
+                        <h2>Amenities & Features</h2>
+                        <div class="amenities-grid">
+                            <div class="amenity-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>24/7 Security</span>
+                            </div>
+                            <div class="amenity-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>Power Backup</span>
+                            </div>
+                            <div class="amenity-item">
+                                <i class="fas fa-dumbbell"></i>
+                                <span>Gymnasium</span>
+                            </div>
+                            <div class="amenity-item">
+                                <i class="fas fa-swimming-pool"></i>
+                                <span>Swimming Pool</span>
+                            </div>
+                            <div class="amenity-item">
+                                <i class="fas fa-gamepad"></i>
+                                <span>Kids Play Area</span>
+                            </div>
+                            <div class="amenity-item">
+                                <i class="fas fa-tree"></i>
+                                <span>Garden/Park</span>
+                            </div>
+                            <div class="amenity-item">
+                                <i class="fas fa-building"></i>
+                                <span>Lift/Elevator</span>
+                            </div>
+                            <div class="amenity-item">
+                                <i class="fas fa-water"></i>
+                                <span>Water Supply</span>
+                            </div>
+                            <div class="amenity-item">
+                                <i class="fas fa-fire-extinguisher"></i>
+                                <span>Fire Safety</span>
+                            </div>
+                            <div class="amenity-item">
+                                <i class="fas fa-home"></i>
+                                <span>Clubhouse</span>
+                            </div>
+                            <div class="amenity-item">
+                                <i class="fas fa-car"></i>
+                                <span>Visitor Parking</span>
+                            </div>
+                            <div class="amenity-item">
+                                <i class="fas fa-video"></i>
+                                <span>CCTV Surveillance</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nearby Places -->
+                    <div class="detail-section" data-aos="fade-up">
+                        <h2>Nearby Locations</h2>
+                        <div class="nearby-places">
+                            <div class="place-item">
+                                <div class="place-name">
+                                    <i class="fas fa-school"></i>
+                                    <span>Delhi Public School</span>
+                                </div>
+                                <div class="place-distance">0.5 km</div>
+                            </div>
+                            <div class="place-item">
+                                <div class="place-name">
+                                    <i class="fas fa-hospital"></i>
+                                    <span>Apollo Hospital</span>
+                                </div>
+                                <div class="place-distance">1.2 km</div>
+                            </div>
+                            <div class="place-item">
+                                <div class="place-name">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>Treasure Island Mall</span>
+                                </div>
+                                <div class="place-distance">0.8 km</div>
+                            </div>
+                            <div class="place-item">
+                                <div class="place-name">
+                                    <i class="fas fa-bus"></i>
+                                    <span>Bus Stand</span>
+                                </div>
+                                <div class="place-distance">2.5 km</div>
+                            </div>
+                            <div class="place-item">
+                                <div class="place-name">
+                                    <i class="fas fa-plane"></i>
+                                    <span>Devi Ahilya Bai Airport</span>
+                                </div>
+                                <div class="place-distance">8.5 km</div>
+                            </div>
+                            <div class="place-item">
+                                <div class="place-name">
+                                    <i class="fas fa-train"></i>
+                                    <span>Railway Station</span>
+                                </div>
+                                <div class="place-distance">7.0 km</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="contact-sidebar">
+                    <!-- Contact Card -->
+                    <div class="sidebar-card" data-aos="fade-left">
+                        <h3>Interested in This Property?</h3>
+
+                        <a href="tel:+919111431431" class="contact-btn btn-call">
+                            <i class="fas fa-phone-alt"></i> Call Now
+                        </a>
+
+                        <a href="https://wa.me/919111431431?text=Hi%20KK%20Enterprises,%20I'm%20interested%20in%20the%203BHK%20apartment%20in%20Vijay%20Nagar" 
+                           target="_blank" 
+                           class="contact-btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+
+                        <a href="mailto:khanidea07@gmail.com?subject=Inquiry%20about%203BHK%20Apartment" 
+                           class="contact-btn btn-email">
+                            <i class="fas fa-envelope"></i> Send Email
+                        </a>
+
+                        <!-- Agent Info -->
+                        <div class="agent-info">
+                            <div class="agent-avatar">KK</div>
+                            <div class="agent-details">
+                                <h4>KK Enterprises</h4>
+                                <p>Property Consultant</p>
+                                <p style="margin-top: 5px;"><i class="fas fa-phone"></i> +91 91114 31431</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visit Card -->
+                    <div class="sidebar-card" data-aos="fade-left" data-aos-delay="100">
+                        <h3>Schedule a Visit</h3>
+                        <p style="color: var(--text-gray); font-size: 14px; margin-bottom: 20px;">
+                            Visit our office or schedule a property viewing at your convenience.
+                        </p>
+                        <div style="background: var(--bg-light); padding: 15px; border-radius: var(--radius); margin-bottom: 15px;">
+                            <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px;">
+                                <i class="fas fa-map-marker-alt" style="color: var(--primary-blue); margin-top: 3px;"></i>
+                                <div>
+                                    <strong style="display: block; margin-bottom: 5px;">Office Address</strong>
+                                    <span style="color: var(--text-gray); font-size: 14px;">
+                                        29/1 Nanda Nagar<br>
+                                        Sai Mandir K Samne<br>
+                                        Indore, Madhya Pradesh
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/919111431431?text=I'd%20like%20to%20schedule%20a%20visit%20for%20the%203BHK%20apartment" 
+                           target="_blank"
+                           class="btn-primary" 
+                           style="width: 100%; justify-content: center;">
+                            <i class="fas fa-calendar-check"></i> Book a Visit
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Similar Properties -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">You May Also Like</span>
+                <h2 class="section-title">Similar <span>Properties</span></h2>
+            </div>
+
+            <div class="properties-grid">
+                <!-- Similar Property 1 -->
+                <div class="property-card" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800" alt="2BHK Flat">
+                        <span class="property-badge">For Rent</span>
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-header">
+                            <h3 class="property-title">2BHK Furnished Flat</h3>
+                            <div class="property-price">₹18K/mo</div>
+                        </div>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Palasia, Indore
+                        </div>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 2 Beds</span>
+                            <span><i class="fas fa-bath"></i> 2 Baths</span>
+                            <span><i class="fas fa-vector-square"></i> 950 sq.ft</span>
+                        </div>
+                        <div class="property-footer">
+                            <a href="property-detail.html" class="btn-view">View Details</a>
+                            <a href="https://wa.me/919111431431" class="btn-contact" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Similar Property 2 -->
+                <div class="property-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800" alt="4BHK House">
+                        <span class="property-badge hot">Hot Deal</span>
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-header">
+                            <h3 class="property-title">4BHK Independent House</h3>
+                            <div class="property-price">₹1.8 Cr</div>
+                        </div>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Scheme 54, Indore
+                        </div>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 4 Beds</span>
+                            <span><i class="fas fa-bath"></i> 3 Baths</span>
+                            <span><i class="fas fa-vector-square"></i> 2500 sq.ft</span>
+                        </div>
+                        <div class="property-footer">
+                            <a href="property-detail.html" class="btn-view">View Details</a>
+                            <a href="https://wa.me/919111431431" class="btn-contact" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Similar Property 3 -->
+                <div class="property-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800" alt="3BHK Flat">
+                        <span class="property-badge new">New</span>
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-header">
+                            <h3 class="property-title">3BHK Premium Flat</h3>
+                            <div class="property-price">₹82 Lakhs</div>
+                        </div>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Sapna Sangeeta, Indore
+                        </div>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 Beds</span>
+                            <span><i class="fas fa-bath"></i> 2 Baths</span>
+                            <span><i class="fas fa-vector-square"></i> 1550 sq.ft</span>
+                        </div>
+                        <div class="property-footer">
+                            <a href="property-detail.html" class="btn-view">View Details</a>
+                            <a href="https://wa.me/919111431431" class="btn-contact" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="zoom-in">
+                <h2>Need Help Finding the Right Property?</h2>
+                <p>Our experts are ready to assist you in finding your dream home or investment property</p>
+                <div class="cta-buttons">
+                    <a href="index.html#properties" class="btn-white btn-lg">
+                        <i class="fas fa-building"></i> Browse More Properties
+                    </a>
+                    <a href="https://wa.me/919111431431?text=I%20need%20help%20finding%20a%20property" 
+                       class="btn-outline-white btn-lg" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Get Expert Advice
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="logo-icon">KK</div>
+                        <div class="logo-text">
+                            <div class="logo-name">KK Enterprises</div>
+                            <div class="logo-tagline">Your Property Partner</div>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Your trusted real estate partner in Indore, providing premium properties 
+                        with complete transparency and customer satisfaction.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#properties">Properties</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Property Types</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#properties">Flats for Sale</a></li>
+                        <li><a href="index.html#properties">Houses for Rent</a></li>
+                        <li><a href="index.html#properties">Commercial Shops</a></li>
+                        <li><a href="index.html#properties">Office Spaces</a></li>
+                        <li><a href="index.html#properties">Residential Plots</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>29/1 Nanda Nagar<br>Sai Mandir K Samne, Indore</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+919111431431">+91 91114 31431</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:khanidea07@gmail.com">khanidea07@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 KK Enterprises. All Rights Reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms & Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Media Gallery Script -->
+    <script>
+        // Media Gallery Functionality with Multiple Photos & Videos Support
+        const thumbnails = document.querySelectorAll('.thumbnail-item');
+        const mainMedia = document.getElementById('mainMedia');
+        const mediaTypeBadge = document.getElementById('mediaTypeBadge');
+        const currentMediaSpan = document.getElementById('currentMedia');
+        const totalMediaSpan = document.getElementById('totalMedia');
+        const prevBtn = document.getElementById('prevMedia');
+        const nextBtn = document.getElementById('nextMedia');
+
+        let currentIndex = 0;
+        const mediaItems = Array.from(thumbnails);
+
+        totalMediaSpan.textContent = mediaItems.length;
+
+        function updateMedia(index) {
+            currentIndex = index;
+            const item = mediaItems[index];
+            const mediaType = item.dataset.type;
+            const mediaSrc = item.dataset.src;
+
+            // Remove active class from all thumbnails
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            item.classList.add('active');
+
+            // Update main media
+            if (mediaType === 'video') {
+                mainMedia.outerHTML = `<video src="${mediaSrc}" class="main-media" id="mainMedia" controls autoplay></video>`;
+                mediaTypeBadge.innerHTML = '<i class="fas fa-video"></i> Video';
+            } else {
+                mainMedia.outerHTML = `<img src="${mediaSrc}" alt="Property Media" class="main-media" id="mainMedia">`;
+                mediaTypeBadge.innerHTML = '<i class="fas fa-image"></i> Photo';
+            }
+
+            currentMediaSpan.textContent = index + 1;
+        }
+
+        // Thumbnail click
+        thumbnails.forEach((thumbnail, index) => {
+            thumbnail.addEventListener('click', () => updateMedia(index));
+        });
+
+        // Navigation buttons
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + mediaItems.length) % mediaItems.length;
+            updateMedia(currentIndex);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % mediaItems.length;
+            updateMedia(currentIndex);
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevBtn.click();
+            } else if (e.key === 'ArrowRight') {
+                nextBtn.click();
+            }
+        });
+    </script>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

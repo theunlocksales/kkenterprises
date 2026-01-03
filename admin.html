@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - KK Enterprises</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="admin-body">
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <i class="fas fa-shield-alt"></i>
+                <h2>KK Enterprises</h2>
+                <p>Admin Panel Login</p>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="loginEmail" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                <p class="login-info">Contact admin for credentials</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" class="admin-dashboard" style="display: none;">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <h2>KK Enterprises</h2>
+                <p>Admin Panel</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-link active" data-section="dashboard">
+                    <i class="fas fa-chart-line"></i> Dashboard
+                </a>
+                <a href="#" class="nav-link" data-section="properties">
+                    <i class="fas fa-building"></i> All Properties
+                </a>
+                <a href="#" class="nav-link" data-section="add-property">
+                    <i class="fas fa-plus-circle"></i> Add Property
+                </a>
+                <a href="#" class="nav-link" data-section="inquiries">
+                    <i class="fas fa-envelope"></i> Inquiries
+                </a>
+                <a href="#" class="nav-link logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1 id="sectionTitle">Dashboard</h1>
+                <div class="admin-user">
+                    <i class="fas fa-user-circle"></i>
+                    <span id="adminUserEmail"></span>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <!-- Dashboard Section -->
+                <section id="dashboardSection" class="admin-section active">
+                    <div class="stats-grid-admin">
+                        <div class="stat-card-admin">
+                            <i class="fas fa-home"></i>
+                            <div>
+                                <h3 id="dashTotalProperties">0</h3>
+                                <p>Total Properties</p>
+                            </div>
+                        </div>
+                        <div class="stat-card-admin">
+                            <i class="fas fa-key"></i>
+                            <div>
+                                <h3 id="dashRentProperties">0</h3>
+                                <p>For Rent</p>
+                            </div>
+                        </div>
+                        <div class="stat-card-admin">
+                            <i class="fas fa-rupee-sign"></i>
+                            <div>
+                                <h3 id="dashSaleProperties">0</h3>
+                                <p>For Sale</p>
+                            </div>
+                        </div>
+                        <div class="stat-card-admin">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3 id="dashInquiries">0</h3>
+                                <p>Inquiries</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recent-properties">
+                        <h3>Recent Properties</h3>
+                        <div id="recentPropertiesList" class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Type</th>
+                                        <th>Price</th>
+                                        <th>Location</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recentPropertiesBody">
+                                    <tr><td colspan="6">Loading...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- All Properties Section -->
+                <section id="propertiesSection" class="admin-section">
+                    <div class="section-actions">
+                        <input type="text" id="searchPropertiesAdmin" placeholder="Search properties...">
+                        <select id="filterTypeAdmin">
+                            <option value="all">All Types</option>
+                            <option value="rent">Rent</option>
+                            <option value="sale">Sale</option>
+                        </select>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Title</th>
+                                    <th>Type</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Location</th>
+                                    <th>BHK</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="allPropertiesBody">
+                                <tr><td colspan="9">Loading...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Add Property Section -->
+                <section id="addPropertySection" class="admin-section">
+                    <form id="addPropertyForm" class="property-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Property Title *</label>
+                                <input type="text" id="propertyTitle" placeholder="e.g., Spacious 3BHK Apartment" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Property Type *</label>
+                                <select id="propertyType" required>
+                                    <option value="">Select Type</option>
+                                    <option value="rent">For Rent</option>
+                                    <option value="sale">For Sale</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Category *</label>
+                                <select id="propertyCategory" required>
+                                    <option value="">Select Category</option>
+                                    <option value="residential">Residential</option>
+                                    <option value="commercial">Commercial</option>
+                                    <option value="plot">Plot/Land</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Price (₹) *</label>
+                                <input type="number" id="propertyPrice" placeholder="e.g., 5000000" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Location/Locality *</label>
+                                <input type="text" id="propertyLocation" placeholder="e.g., Vijay Nagar, Indore" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Area (sq.ft) *</label>
+                                <input type="number" id="propertyArea" placeholder="e.g., 1200" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Bedrooms</label>
+                                <input type="number" id="propertyBedrooms" placeholder="e.g., 3" min="0">
+                            </div>
+                            <div class="form-group">
+                                <label>Bathrooms</label>
+                                <input type="number" id="propertyBathrooms" placeholder="e.g., 2" min="0">
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>Description *</label>
+                            <textarea id="propertyDescription" rows="5" placeholder="Detailed property description..." required></textarea>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>Amenities (comma separated)</label>
+                            <input type="text" id="propertyAmenities" placeholder="e.g., Parking, Gym, Swimming Pool, 24x7 Security">
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>Property Images * (Max 6 images)</label>
+                            <input type="file" id="propertyImages" multiple accept="image/*" required>
+                            <div id="imagePreview" class="image-preview"></div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Contact Name</label>
+                                <input type="text" id="contactName" placeholder="Owner/Agent name">
+                            </div>
+                            <div class="form-group">
+                                <label>Contact Phone</label>
+                                <input type="tel" id="contactPhone" placeholder="e.g., +91 98765 43210">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select id="propertyStatus">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">
+                                <i class="fas fa-save"></i> Add Property
+                            </button>
+                            <button type="button" id="resetForm" class="btn-secondary">
+                                <i class="fas fa-redo"></i> Reset Form
+                            </button>
+                        </div>
+                        <div id="uploadProgress" class="upload-progress" style="display: none;">
+                            <div class="progress-bar">
+                                <div class="progress-fill"></div>
+                            </div>
+                            <p>Uploading...</p>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Inquiries Section -->
+                <section id="inquiriesSection" class="admin-section">
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Property</th>
+                                    <th>Message</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="inquiriesBody">
+                                <tr><td colspan="7">Loading...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Edit Property Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content large-modal">
+            <span class="close-modal">&times;</span>
+            <h2>Edit Property</h2>
+            <form id="editPropertyForm" class="property-form">
+                <input type="hidden" id="editPropertyId">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Property Title</label>
+                        <input type="text" id="editTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Type</label>
+                        <select id="editType" required>
+                            <option value="rent">For Rent</option>
+                            <option value="sale">For Sale</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="editCategory" required>
+                            <option value="residential">Residential</option>
+                            <option value="commercial">Commercial</option>
+                            <option value="plot">Plot/Land</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Price (₹)</label>
+                        <input type="number" id="editPrice" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Location</label>
+                        <input type="text" id="editLocation" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Area (sq.ft)</label>
+                        <input type="number" id="editArea" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Bedrooms</label>
+                        <input type="number" id="editBedrooms">
+                    </div>
+                    <div class="form-group">
+                        <label>Bathrooms</label>
+                        <input type="number" id="editBathrooms">
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label>Description</label>
+                    <textarea id="editDescription" rows="4" required></textarea>
+                </div>
+                <div class="form-group full-width">
+                    <label>Status</label>
+                    <select id="editStatus">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Save Changes</button>
+                    <button type="button" class="btn-secondary close-modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
