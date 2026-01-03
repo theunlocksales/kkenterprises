@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - KK Enterprises| Trusted Loan Consultancy</title>
+    <meta name="description" content="Founded in 2010 with 10+ years of expertise. 50+ banking partnerships. Empowering your dreams with tailored loan solutions.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #F5A623 0%, #FF8C42 100%);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            padding: 32px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #F5A623 0%, #FF8C42 100%);
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px rgba(245, 166, 35, 0.2);
+            z-index: 2;
+        }
+
+        .timeline-year {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, #F5A623 0%, #FF8C42 100%);
+            color: white;
+            font-weight: 700;
+            border-radius: 50px;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 48px;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #F5A623 0%, #FF8C42 100%);
+        }
+
+        .team-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 16px 48px rgba(245, 166, 35, 0.3);
+        }
+
+        .team-avatar {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 24px;
+            background: linear-gradient(135deg, #F5A623 0%, #FF8C42 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 56px;
+            font-weight: 800;
+            color: white;
+            font-family: 'Sora', sans-serif;
+            box-shadow: 0 8px 24px rgba(245, 166, 35, 0.4);
+        }
+
+        .team-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .team-position {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .team-experience {
+            font-size: 15px;
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin: 60px 0;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 32px 24px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(245, 166, 35, 0.3);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 900;
+            font-family: 'Sora', sans-serif;
+            background: linear-gradient(135deg, #F5A623 0%, #FF8C42 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: var(--dark-gray);
+            font-weight: 600;
+        }
+
+        .services-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 32px;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(245, 166, 35, 0.1) 0%, rgba(255, 140, 66, 0.1) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .service-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .service-description {
+            font-size: 15px;
+            color: var(--dark-gray);
+            line-height: 1.7;
+        }
+
+        .goals-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .goal-card {
+            background: white;
+            padding: 32px;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            display: flex;
+            gap: 24px;
+            align-items: start;
+            transition: all 0.3s ease;
+        }
+
+        .goal-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 24px rgba(245, 166, 35, 0.3);
+        }
+
+        .goal-number {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #F5A623 0%, #FF8C42 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .goal-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .goal-content p {
+            font-size: 15px;
+            color: var(--dark-gray);
+            line-height: 1.7;
+        }
+
+        @media (max-width: 968px) {
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+                padding-left: 60px;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .goals-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/917838393421?text=Hi%20KK Enterprises!%20I%20want%20to%20know%20more%20about%20your%20services" class="whatsapp-float" target="_blank">
+        <div class="pulse-ring"></div>
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+ <!-- Navigation -->
+   <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <!--<img src="logo.png" alt="KK enterprises Indore" class="logo-img">-->
+                    <span>KK enterprises Indore</span>
+                </a>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Pages <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="calculator.html" class="dropdown-item"><i class="fas fa-hand-holding-usd"></i>EMI/Balance Transfer Calculator</a>
+                            <a href="contact.html" class="dropdown-item"><i class="fas fa-hand-holding-usd"></i>Contact us</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Our Products <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="business.html" class="dropdown-item"><i class="fas fa-home"></i> Business Loan</a>
+                            <a href="personal.html" class="dropdown-item"><i class="fas fa-landmark"></i> Personal Loan</a>
+                            <a href="lap.html" class="dropdown-item"><i class="fas fa-car"></i> Loan Against Property</a>
+                            <a href="car.html" class="dropdown-item highlighted-product">
+                                <i class="fas fa-user-md"></i> New & Used Car Loan
+                            </a>
+                            <a href="homeloan.html" class="dropdown-item highlighted-product">
+                                <i class="fas fa-money-check-alt"></i> Home Loan
+                            </a>
+                        </div>
+                    </li>
+
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="lender.html" class="nav-link">Lender Pincode Search</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="tel:+919111431431" class="btn-icon"><i class="fas fa-phone"></i></a>
+                    <button class="hamburger" id="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(135deg, #0A1628 0%, #1a2332 100%); min-height: 50vh; padding: 150px 0 80px; position: relative; overflow: hidden;">
+        <div class="container">
+            <div class="hero-content" style="text-align: center; color: white;" data-aos="fade-up">
+                <p class="section-label" style="color: var(--accent-gold); background: rgba(245, 166, 35, 0.1); display: inline-flex; padding: 8px 24px; border-radius: 50px; margin-bottom: 24px;">
+                    <i class="fas fa-building" style="margin-right: 8px;"></i> ABOUT KK Enterprises
+                </p>
+                <h1 class="hero-title" style="font-size: 56px; color: white; margin-bottom: 24px;">
+                    Empowering Your Dreams with <span class="gradient-text">Tailored Loan Solutions</span>
+                </h1>
+                <p class="hero-subtitle" style="font-size: 20px; max-width: 800px; margin: 0 auto;">
+                    Founded in 2024 with 10+ years of expertise • 50+ banking partnerships • Thousands of happy customers
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Story -->
+    <section style="padding: 100px 0; background: white;">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <p class="section-label">OUR STORY</p>
+                <h2 class="section-title">About <span class="gradient-text">KK Enterprises</span></h2>
+            </div>
+
+            <div style="max-width: 1000px; margin: 48px auto 0;" data-aos="fade-up">
+                <div style="background: linear-gradient(135deg, rgba(245, 166, 35, 0.05) 0%, rgba(255, 140, 66, 0.05) 100%); padding: 48px; border-radius: 24px; border-left: 4px solid var(--accent-gold);">
+                    <p style="font-size: 18px; line-height: 1.9; color: var(--dark-gray); margin-bottom: 24px;">
+                        <strong>Founded in October 2010</strong>, KK Enterprisesis built on more than a decade of expertise in the financial and loan advisory sector. Although the company is newly established, our directors bring <strong>10–12 years of strong industry experience</strong>, having guided thousands of customers in making the right financial decisions.
+                    </p>
+                    <p style="font-size: 18px; line-height: 1.9; color: var(--dark-gray); margin-bottom: 24px;">
+                        What began as a focused consultancy has quickly evolved into a trusted loan advisory platform, helping individuals and businesses access the right financial solutions with ease. With <strong>50+ banking and NBFC partnerships</strong>, we provide a wide range of loan products tailored to customer needs — ensuring competitive interest rates, transparent guidance, and a smooth process from application to approval.
+                    </p>
+                    <p style="font-size: 18px; line-height: 1.9; color: var(--dark-gray);">
+                        At KK Enterprises, we believe that <strong>every Indian deserves easy, fair, and transparent access to finance</strong> — and we are committed to making that a reality.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid" data-aos="fade-up">
+                <div class="stat-box">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Banking Partners</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">12+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Happy Customers</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Loan Products</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section style="padding: 100px 0; background: var(--light-gray);">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 40px;">
+                
+                <!-- Vision -->
+                <div data-aos="fade-up">
+                    <div style="background: white; padding: 48px; border-radius: 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); height: 100%;">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #F5A623 0%, #FF8C42 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                            <i class="fas fa-eye" style="font-size: 36px; color: white;"></i>
+                        </div>
+                        <h3 style="font-size: 32px; font-weight: 800; color: var(--primary-dark); margin-bottom: 20px;">Our Vision</h3>
+                        <p style="font-size: 17px; line-height: 1.8; color: var(--dark-gray);">
+                            To be the most trusted loan consultancy partner, recognized for our professionalism, integrity, and dedication to helping our clients achieve their financial goals.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Mission -->
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div style="background: white; padding: 48px; border-radius: 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); height: 100%;">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #F5A623 0%, #FF8C42 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                            <i class="fas fa-bullseye" style="font-size: 36px; color: white;"></i>
+                        </div>
+                        <h3 style="font-size: 32px; font-weight: 800; color: var(--primary-dark); margin-bottom: 20px;">Our Mission</h3>
+                        <p style="font-size: 17px; line-height: 1.8; color: var(--dark-gray);">
+                            To provide expert consultancy services that empower individuals and businesses to make informed financial decisions. We are committed to offering transparent, competitive, and flexible loan solutions that best suit our clients' needs.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Milestones -->
+    <section style="padding: 100px 0; background: white;">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <p class="section-label">OUR JOURNEY</p>
+                <h2 class="section-title">Company <span class="gradient-text">Milestones</span></h2>
+            </div>
+
+            <div class="timeline">
+                <!-- Milestone 1 -->
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2024</span>
+                        <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: var(--primary-dark);">Establishment of KK EnterprisesConsultancy</h3>
+                        <p style="color: var(--dark-gray); line-height: 1.7;">Founded with a vision to simplify loan processes and provide expert advice to individuals and businesses alike. Initially focused on all types of loan consulting and expanded to include business financing solutions.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <!-- Milestone 2 -->
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2024</span>
+                        <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: var(--primary-dark);">Major Retail Chain Partnership</h3>
+                        <p style="color: var(--dark-gray); line-height: 1.7;">Successfully onboarded a leading retail chain, providing business loan consultancy for its expansion into new markets. Facilitated a significant loan package that helped the company scale operations.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <!-- Milestone 3 -->
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2025</span>
+                        <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: var(--primary-dark);">50+ Banking Partnerships</h3>
+                        <p style="color: var(--dark-gray); line-height: 1.7;">Established formal partnerships with top-tier national and international banks to provide clients with exclusive loan offers and customized financial products. Enabled access to better loan terms, lower interest rates, and streamlined approval processes for clients.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team -->
+    <!-- Our Team -->
+<section style="padding: 100px 0; background: var(--light-gray);">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <p class="section-label">LEADERSHIP</p>
+            <h2 class="section-title">Meet Our <span class="gradient-text">Expert Team</span></h2>
+            <p class="section-text">Over 12 years of combined experience in the loan and financial services industry</p>
+        </div>
+
+        <div class="team-grid">
+            <!-- Team Member 1 - Amrender Kumar -->
+            <div class="team-card" data-aos="fade-up">
+                <div class="team-avatar-image">
+                    <img src="owner.png" alt="Akram Khan - Founder & CEO">
+                </div>
+                <h3 class="team-name">Akram Khan</h3>
+                <p class="team-position">Founder & CEO</p>
+                <p class="team-experience">Leading KK Enterpriseswith 12+ years of expertise in financial consultancy and loan advisory services. Passionate about helping clients achieve their financial goals.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <!-- Services Overview -->
+    <section style="padding: 100px 0; background: white;">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <p class="section-label">WHAT WE OFFER</p>
+                <h2 class="section-title">Our <span class="gradient-text">Services</span></h2>
+                <p class="section-text">Comprehensive loan solutions for every financial need</p>
+            </div>
+
+            <div class="services-overview">
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="service-title">Home Loan</h3>
+                    <p class="service-description">Help individuals purchase or construct a residential property with flexible repayment options and competitive interest rates.</p>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="service-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3 class="service-title">Loan Against Property</h3>
+                    <p class="service-description">Secured loan option where borrowers can mortgage their property for substantial funds without selling it.</p>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="service-title">Business Loan</h3>
+                    <p class="service-description">Fund business operations, expansion, or working capital needs with tailored financing solutions.</p>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="service-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="service-title">Personal Loan</h3>
+                    <p class="service-description">Unsecured loans for personal needs like medical expenses, education, weddings, or debt consolidation.</p>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+             </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3 class="service-title">Car Loan</h3>
+                    <p class="service-description">Finance new or used cars with up to 100% on-road price funding and flexible EMI options.</p>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3 class="service-title">Credit Cards</h3>
+                    <p class="service-description">Guidance on the best credit card options suited for your spending habits with rewards and cashback benefits.</p>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="service-title">Education Loan</h3>
+                    <p class="service-description">Secure affordable education loans with personalized advice on amount, repayment, and selecting the right lender.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Goals -->
+    <section style="padding: 100px 0; background: var(--light-gray);">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <p class="section-label">OUR COMMITMENT</p>
+                <h2 class="section-title">Company <span class="gradient-text">Goals</span></h2>
+                <p class="section-text">Centered around customer satisfaction, market growth, and value-added services</p>
+            </div>
+
+            <div class="goals-list">
+                <div class="goal-card" data-aos="fade-up">
+                    <div class="goal-number">1</div>
+                    <div class="goal-content">
+                        <h3>Deliver Exceptional Customer Service</h3>
+                        <p><strong>Goal:</strong> To ensure every client receives personalized loan solutions that match their needs and financial goals.</p>
+                        <p style="margin-top: 8px;"><strong>Objective:</strong> Build strong relationships with clients by offering clear guidance, transparent processes, and prompt responses to queries.</p>
+                    </div>
+                </div>
+
+                <div class="goal-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="goal-number">2</div>
+                    <div class="goal-content">
+                        <h3>Maintain High Loan Approval Rates</h3>
+                        <p><strong>Goal:</strong> To ensure that clients' loan applications are approved in a timely and efficient manner.</p>
+                        <p style="margin-top: 8px;"><strong>Objective:</strong> Guide clients through the loan application process, helping them meet eligibility criteria and present strong applications, ensuring high approval rates.</p>
+                    </div>
+                </div>
+
+                <div class="goal-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="goal-number">3</div>
+                    <div class="goal-content">
+                        <h3>Expand Banking Partnerships</h3>
+                        <p><strong>Goal:</strong> To continuously grow our network of banking and NBFC partners.</p>
+                        <p style="margin-top: 8px;"><strong>Objective:</strong> Provide clients access to the most competitive loan rates and diverse product options through strategic partnerships.</p>
+                    </div>
+                </div>
+
+                <div class="goal-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="goal-number">4</div>
+                    <div class="goal-content">
+                        <h3>Enhance Digital Experience</h3>
+                        <p><strong>Goal:</strong> To leverage technology for seamless loan application and tracking.</p>
+                        <p style="margin-top: 8px;"><strong>Objective:</strong> Implement digital solutions that make the loan process faster, transparent, and more convenient for our clients.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" style="padding: 100px 0; background: linear-gradient(135deg, #F5A623 0%, #FF8C42 100%); position: relative; overflow: hidden;">
+        <div class="container">
+            <div class="cta-content" style="text-align: center; color: white; position: relative; z-index: 1;">
+                <h2 style="font-size: 48px; margin-bottom: 20px;">Let's Connect with Us!</h2>
+                <p style="font-size: 20px; margin-bottom: 48px;">Get expert loan consultancy and find the perfect financial solution</p>
+                <div class="cta-buttons" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="https://wa.me/917838393421?text=Hi%20KK Enterprises!%20I%20want%20to%20discuss%20loan%20options" class="btn-primary btn-lg" target="_blank" style="background: white; color: #F5A623;">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                    <a href="tel:+919111431431" class="btn-outline light btn-lg" style="border-color: white; color: white;">
+                        <i class="fas fa-phone"></i> Call: 7838393421
+                    </a>
+                    <a href="mailto:ops.KK Enterprises@gmail.com" class="btn-outline light btn-lg" style="border-color: white; color: white;">
+                        <i class="fas fa-envelope"></i> Email Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                       <!-- <div class="logo-icon"><img src="logo.png" alt="KK enterprises Indore" class="logo-img"></div>-->
+                        <span>KK enterprises Indore</span>
+                    </div>
+                    <p>
+                        Founded in October 2010 with 15+ years of expertise. India's most trusted loan consultancy helping thousands achieve their financial dreams.
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                       
+                        <li><a href="lender.html">Lender Search</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Loan Products</h4>
+                    <ul>
+                        <li><a href="homeloan.html">Home Loan</a></li>
+                        <li><a href="business.html">Business Loan</a></li>
+                        <li><a href="personal.html">Personal Loan</a></li>
+                        <li><a href="lap.html">Loan Against Property</a></li>
+                        <li><a href="car.html">Car Loan</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+919111431431">+91 9111431431</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="khanidea07@gmail.com">khanidea07@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>29/1 nanda nagar Sai mandir k samne</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 KK enterprises Indore Consultancy Services Pvt Ltd. All rights reserved.</p>
+                <p class="developer-credit">
+                    Design & Developed by <a href="https://theunlocksales.github.io/theunlocksales/" target="_blank">The Unlock Sales</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/919111431431?text=Hi%,%20I%20need%20loan%20assistance" class="whatsapp-float" target="_blank">
+        <div class="pulse-ring"></div>
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({ duration: 900, once: true });
+            }
+        });
+    </script>
+</body>
+</html>
