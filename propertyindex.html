@@ -1,12 +1,10 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KK Enterprises - Premium Real Estate in Indore | Shop, Office, Flat, Plot, House</title>
-    <meta name="description" content="KK Enterprises - Your trusted partner for premium properties in Indore. We offer shops, offices, flats, plots, and houses for rent and sale.">
+    <title>KK Enterprises - Premium Real Estate Properties in Indore</title>
+    <meta name="description" content="KK Enterprises - Your trusted partner for premium properties in Indore. Browse luxury flats, shops, offices, plots, and houses for rent and sale.">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -33,7 +31,7 @@
     <!-- Header -->
     <header class="header" id="header">
         <div class="header-container">
-            <a href="propertyindex.html" class="logo">
+            <a href="#home" class="logo">
                 <div class="logo-icon">KK</div>
                 <div class="logo-text">
                     <div class="logo-name">KK Enterprises</div>
@@ -42,11 +40,10 @@
             </a>
 
             <nav class="nav-menu" id="navMenu">
-                <a href="propertyindex.html#home" class="nav-link active">Home</a>
-                <a href="propertyindex.html#properties" class="nav-link">Properties</a>
-                <a href="propertyindex.html#services" class="nav-link">Services</a>
-                <a href="propertyindex.html#about" class="nav-link">About</a>
-                <a href="propertyindex.html#contact" class="nav-link">Contact</a>
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#properties" class="nav-link">Properties</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </nav>
 
             <div class="header-actions">
@@ -68,7 +65,7 @@
     <section class="hero" id="home">
         <div class="hero-video-bg">
             <video autoplay muted loop playsinline>
-                <source src="video.mp4" type="video/mp4">
+                <source src="https://cdn.pixabay.com/video/2022/11/07/138581-769570488_large.mp4" type="video/mp4">
             </video>
         </div>
         <div class="hero-overlay"></div>
@@ -90,44 +87,6 @@
                             <i class="fas fa-phone-alt"></i> Contact Us
                         </a>
                     </div>
-                </div>
-
-                <!-- Quick Search -->
-                <div class="quick-search" data-aos="fade-up" data-aos-delay="200">
-                    <div class="search-tabs">
-                        <button class="search-tab active" data-type="buy">Buy</button>
-                        <button class="search-tab" data-type="rent">Rent</button>
-                    </div>
-                    <form class="search-form" id="searchForm">
-                        <div class="form-group">
-                            <i class="fas fa-building"></i>
-                            <select class="form-select" name="property-type">
-                                <option value="">Property Type</option>
-                                <option value="flat">Flat</option>
-                                <option value="house">House</option>
-                                <option value="shop">Shop</option>
-                                <option value="office">Office</option>
-                                <option value="plot">Plot</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <input type="text" class="form-input" placeholder="Location in Indore" name="location">
-                        </div>
-                        <div class="form-group">
-                            <i class="fas fa-rupee-sign"></i>
-                            <select class="form-select" name="budget">
-                                <option value="">Budget Range</option>
-                                <option value="0-25">Under ₹25 Lakhs</option>
-                                <option value="25-50">₹25L - ₹50L</option>
-                                <option value="50-100">₹50L - ₹1 Cr</option>
-                                <option value="100+">Above ₹1 Crore</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn-search">
-                            <i class="fas fa-search"></i> Search
-                        </button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -169,58 +128,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="section-padding" id="services">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">Our Services</span>
-                <h2 class="section-title">What We <span>Offer</span></h2>
-                <p class="section-subtitle">Complete real estate solutions for all your property needs in Indore</p>
-            </div>
-
-            <div class="why-us-grid">
-                <div class="why-card" data-aos="fade-up" data-aos-delay="0">
-                    <div class="why-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <h3>Residential Properties</h3>
-                    <p>Premium flats and houses for rent and sale in prime locations of Indore. Find your perfect home with us.</p>
-                    <ul style="list-style: none; padding: 0; margin-top: 15px; text-align: left;">
-                        <li style="padding: 5px 0; color: var(--text-gray); font-size: 14px;"><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 8px;"></i> 1BHK to 4BHK Flats</li>
-                        <li style="padding: 5px 0; color: var(--text-gray); font-size: 14px;"><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 8px;"></i> Independent Houses</li>
-                        <li style="padding: 5px 0; color: var(--text-gray); font-size: 14px;"><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 8px;"></i> Villas & Penthouses</li>
-                    </ul>
-                </div>
-
-                <div class="why-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="why-icon">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    <h3>Commercial Spaces</h3>
-                    <p>High-footfall shops and modern offices in strategic locations. Perfect for your business growth.</p>
-                    <ul style="list-style: none; padding: 0; margin-top: 15px; text-align: left;">
-                        <li style="padding: 5px 0; color: var(--text-gray); font-size: 14px;"><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 8px;"></i> Retail Shops</li>
-                        <li style="padding: 5px 0; color: var(--text-gray); font-size: 14px;"><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 8px;"></i> Office Spaces</li>
-                        <li style="padding: 5px 0; color: var(--text-gray); font-size: 14px;"><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 8px;"></i> Showrooms</li>
-                    </ul>
-                </div>
-
-                <div class="why-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="why-icon">
-                        <i class="fas fa-map-marked-alt"></i>
-                    </div>
-                    <h3>Land & Plots</h3>
-                    <p>Residential and commercial plots in developing areas. Invest in your future with prime land parcels.</p>
-                    <ul style="list-style: none; padding: 0; margin-top: 15px; text-align: left;">
-                        <li style="padding: 5px 0; color: var(--text-gray); font-size: 14px;"><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 8px;"></i> Residential Plots</li>
-                        <li style="padding: 5px 0; color: var(--text-gray); font-size: 14px;"><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 8px;"></i> Commercial Plots</li>
-                        <li style="padding: 5px 0; color: var(--text-gray); font-size: 14px;"><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 8px;"></i> Agricultural Land</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Properties Section -->
     <section class="section-padding bg-light" id="properties">
         <div class="container">
@@ -231,223 +138,32 @@
             </div>
 
             <!-- Filter Buttons -->
-            <div class="filter-buttons" data-aos="fade-up" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 40px;">
-                <button class="filter-btn active" data-filter="all" style="padding: 10px 24px; background: var(--gradient-blue); color: white; border: none; border-radius: var(--radius); font-size: 14px; font-weight: 600; cursor: pointer; transition: var(--transition);">All Properties</button>
-                <button class="filter-btn" data-filter="flat" style="padding: 10px 24px; background: white; color: var(--text-dark); border: 2px solid var(--border-color); border-radius: var(--radius); font-size: 14px; font-weight: 600; cursor: pointer; transition: var(--transition);">Flats</button>
-                <button class="filter-btn" data-filter="house" style="padding: 10px 24px; background: white; color: var(--text-dark); border: 2px solid var(--border-color); border-radius: var(--radius); font-size: 14px; font-weight: 600; cursor: pointer; transition: var(--transition);">Houses</button>
-                <button class="filter-btn" data-filter="shop" style="padding: 10px 24px; background: white; color: var(--text-dark); border: 2px solid var(--border-color); border-radius: var(--radius); font-size: 14px; font-weight: 600; cursor: pointer; transition: var(--transition);">Shops</button>
-                <button class="filter-btn" data-filter="office" style="padding: 10px 24px; background: white; color: var(--text-dark); border: 2px solid var(--border-color); border-radius: var(--radius); font-size: 14px; font-weight: 600; cursor: pointer; transition: var(--transition);">Offices</button>
-                <button class="filter-btn" data-filter="plot" style="padding: 10px 24px; background: white; color: var(--text-dark); border: 2px solid var(--border-color); border-radius: var(--radius); font-size: 14px; font-weight: 600; cursor: pointer; transition: var(--transition);">Plots</button>
+            <div class="filter-buttons" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">All Properties</button>
+                <button class="filter-btn" data-filter="flat">Flats</button>
+                <button class="filter-btn" data-filter="house">Houses</button>
+                <button class="filter-btn" data-filter="shop">Shops</button>
+                <button class="filter-btn" data-filter="office">Offices</button>
+                <button class="filter-btn" data-filter="plot">Plots</button>
             </div>
 
             <!-- Properties Grid -->
-            <div class="properties-grid">
-                <!-- Property 1: Luxury Flat -->
-                <div class="property-card" data-category="flat" data-aos="fade-up">
-                    <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800" alt="3BHK Luxury Flat">
-                        <span class="property-badge hot">Hot Deal</span>
-                        <button class="wishlist-btn" aria-label="Add to wishlist">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                    <div class="property-info">
-                        <div class="property-header">
-                            <h3 class="property-title">3BHK Luxury Flat</h3>
-                            <div class="property-price">₹75 Lakhs</div>
-                        </div>
-                        <div class="property-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            Vijay Nagar, Indore
-                        </div>
-                        <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 3 Beds</span>
-                            <span><i class="fas fa-bath"></i> 2 Baths</span>
-                            <span><i class="fas fa-vector-square"></i> 1450 sq.ft</span>
-                        </div>
-                        <div class="property-footer">
-                            <a href="property-detail.html?id=1" class="btn-view">View Details</a>
-                            <a href="https://wa.me/919111431431?text=I'm%20interested%20in%203BHK%20Luxury%20Flat" 
-                               class="btn-contact" target="_blank">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property 2: Commercial Shop -->
-                <div class="property-card" data-category="shop" data-aos="fade-up" data-aos-delay="100">
-                    <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800" alt="Prime Commercial Shop">
-                        <span class="property-badge new">New</span>
-                        <button class="wishlist-btn" aria-label="Add to wishlist">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                    <div class="property-info">
-                        <div class="property-header">
-                            <h3 class="property-title">Prime Commercial Shop</h3>
-                            <div class="property-price">₹1.2 Cr</div>
-                        </div>
-                        <div class="property-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            MG Road, Indore
-                        </div>
-                        <div class="property-features">
-                            <span><i class="fas fa-store"></i> Retail</span>
-                            <span><i class="fas fa-parking"></i> Parking</span>
-                            <span><i class="fas fa-vector-square"></i> 800 sq.ft</span>
-                        </div>
-                        <div class="property-footer">
-                            <a href="property-detail.html?id=2" class="btn-view">View Details</a>
-                            <a href="https://wa.me/919111431431?text=I'm%20interested%20in%20Prime%20Commercial%20Shop" 
-                               class="btn-contact" target="_blank">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property 3: Independent House -->
-                <div class="property-card" data-category="house" data-aos="fade-up" data-aos-delay="200">
-                    <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800" alt="4BHK Independent House">
-                        <span class="property-badge">For Sale</span>
-                        <button class="wishlist-btn" aria-label="Add to wishlist">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                    <div class="property-info">
-                        <div class="property-header">
-                            <h3 class="property-title">4BHK Independent House</h3>
-                            <div class="property-price">₹1.8 Cr</div>
-                        </div>
-                        <div class="property-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            Scheme 54, Indore
-                        </div>
-                        <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 4 Beds</span>
-                            <span><i class="fas fa-bath"></i> 3 Baths</span>
-                            <span><i class="fas fa-vector-square"></i> 2500 sq.ft</span>
-                        </div>
-                        <div class="property-footer">
-                            <a href="property-detail.html?id=3" class="btn-view">View Details</a>
-                            <a href="https://wa.me/919111431431?text=I'm%20interested%20in%204BHK%20Independent%20House" 
-                               class="btn-contact" target="_blank">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property 4: Office Space -->
-                <div class="property-card" data-category="office" data-aos="fade-up">
-                    <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800" alt="Modern Office Space">
-                        <span class="property-badge">For Rent</span>
-                        <button class="wishlist-btn" aria-label="Add to wishlist">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                    <div class="property-info">
-                        <div class="property-header">
-                            <h3 class="property-title">Modern Office Space</h3>
-                            <div class="property-price">₹45K/mo</div>
-                        </div>
-                        <div class="property-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            Sapna Sangeeta, Indore
-                        </div>
-                        <div class="property-features">
-                            <span><i class="fas fa-briefcase"></i> Furnished</span>
-                            <span><i class="fas fa-wifi"></i> WiFi</span>
-                            <span><i class="fas fa-vector-square"></i> 1200 sq.ft</span>
-                        </div>
-                        <div class="property-footer">
-                            <a href="property-detail.html?id=4" class="btn-view">View Details</a>
-                            <a href="https://wa.me/919111431431?text=I'm%20interested%20in%20Modern%20Office%20Space" 
-                               class="btn-contact" target="_blank">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property 5: Residential Plot -->
-                <div class="property-card" data-category="plot" data-aos="fade-up" data-aos-delay="100">
-                    <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800" alt="Residential Plot">
-                        <span class="property-badge hot">Hot Deal</span>
-                        <button class="wishlist-btn" aria-label="Add to wishlist">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                    <div class="property-info">
-                        <div class="property-header">
-                            <h3 class="property-title">Residential Plot</h3>
-                            <div class="property-price">₹55 Lakhs</div>
-                        </div>
-                        <div class="property-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            AB Road, Indore
-                        </div>
-                        <div class="property-features">
-                            <span><i class="fas fa-map"></i> Clear Title</span>
-                            <span><i class="fas fa-road"></i> Road Access</span>
-                            <span><i class="fas fa-vector-square"></i> 2000 sq.ft</span>
-                        </div>
-                        <div class="property-footer">
-                            <a href="property-detail.html?id=5" class="btn-view">View Details</a>
-                            <a href="https://wa.me/919111431431?text=I'm%20interested%20in%20Residential%20Plot" 
-                               class="btn-contact" target="_blank">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property 6: 2BHK Apartment for Rent -->
-                <div class="property-card" data-category="flat" data-aos="fade-up" data-aos-delay="200">
-                    <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800" alt="2BHK Flat">
-                        <span class="property-badge">For Rent</span>
-                        <button class="wishlist-btn" aria-label="Add to wishlist">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                    <div class="property-info">
-                        <div class="property-header">
-                            <h3 class="property-title">2BHK Furnished Flat</h3>
-                            <div class="property-price">₹18K/mo</div>
-                        </div>
-                        <div class="property-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            Palasia, Indore
-                        </div>
-                        <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 2 Beds</span>
-                            <span><i class="fas fa-bath"></i> 2 Baths</span>
-                            <span><i class="fas fa-vector-square"></i> 950 sq.ft</span>
-                        </div>
-                        <div class="property-footer">
-                            <a href="property-detail.html?id=6" class="btn-view">View Details</a>
-                            <a href="https://wa.me/919111431431?text=I'm%20interested%20in%202BHK%20Furnished%20Flat" 
-                               class="btn-contact" target="_blank">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 40px;" data-aos="fade-up">
-                <a href="#contact" class="btn-primary btn-lg">
-                    View All Properties <i class="fas fa-arrow-right"></i>
-                </a>
+            <div class="properties-grid" id="propertiesGrid">
+                <!-- Properties will be dynamically loaded here -->
             </div>
         </div>
     </section>
+
+    <!-- Property Modal -->
+    <div class="property-modal" id="propertyModal">
+        <div class="modal-overlay" onclick="closePropertyModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closePropertyModal()">&times;</button>
+            <div class="modal-body" id="modalBody">
+                <!-- Property details will be loaded here -->
+            </div>
+        </div>
+    </div>
 
     <!-- About Section -->
     <section class="section-padding" id="about">
@@ -511,79 +227,6 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="section-padding bg-light">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">Testimonials</span>
-                <h2 class="section-title">What Our <span>Clients Say</span></h2>
-                <p class="section-subtitle">Real experiences from satisfied customers</p>
-            </div>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card" data-aos="fade-up">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">
-                        "KK Enterprises helped us find our dream home in Vijay Nagar. The entire process was smooth 
-                        and transparent. Highly recommend their services!"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Rajesh Sharma</h4>
-                            <p>Home Buyer</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">
-                        "Best real estate consultants in Indore! They found the perfect commercial space for my business. 
-                        Professional and trustworthy team."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Priya Patel</h4>
-                            <p>Business Owner</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">
-                        "Excellent service! They understood our requirements perfectly and showed us only relevant properties. 
-                        Very satisfied with our investment."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Amit Verma</h4>
-                            <p>Investor</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section class="section-padding" id="contact">
         <div class="container">
@@ -593,74 +236,66 @@
                 <p class="section-subtitle">We're here to help you find your perfect property</p>
             </div>
 
-            <div class="contact-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+            <div class="contact-grid">
                 <!-- Contact Info -->
                 <div class="contact-info" data-aos="fade-right">
-                    <div style="background: var(--white); padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow-sm); margin-bottom: 20px;">
-                        <div style="display: flex; align-items: flex-start; gap: 20px;">
-                            <div style="width: 50px; height: 50px; background: rgba(0, 102, 204, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <i class="fas fa-map-marker-alt" style="color: var(--primary-blue); font-size: 20px;"></i>
-                            </div>
-                            <div>
-                                <h3 style="font-size: 18px; margin-bottom: 10px; color: var(--text-dark);">Office Address</h3>
-                                <p style="color: var(--text-gray); line-height: 1.6; margin: 0;">29/1 Nanda Nagar<br>Sai Mandir K Samne<br>Indore, Madhya Pradesh</p>
-                            </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Office Address</h3>
+                            <p>29/1 Nanda Nagar<br>Sai Mandir K Samne<br>Indore, Madhya Pradesh</p>
                         </div>
                     </div>
 
-                    <div style="background: var(--white); padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow-sm); margin-bottom: 20px;">
-                        <div style="display: flex; align-items: flex-start; gap: 20px;">
-                            <div style="width: 50px; height: 50px; background: rgba(0, 102, 204, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <i class="fas fa-phone-alt" style="color: var(--primary-blue); font-size: 20px;"></i>
-                            </div>
-                            <div>
-                                <h3 style="font-size: 18px; margin-bottom: 10px; color: var(--text-dark);">Phone Number</h3>
-                                <p style="margin: 0;"><a href="tel:+919111431431" style="color: var(--primary-blue); font-weight: 600;">+91 91114 31431</a></p>
-                            </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone Number</h3>
+                            <p><a href="tel:+919111431431">+91 91114 31431</a></p>
                         </div>
                     </div>
 
-                    <div style="background: var(--white); padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow-sm); margin-bottom: 20px;">
-                        <div style="display: flex; align-items: flex-start; gap: 20px;">
-                            <div style="width: 50px; height: 50px; background: rgba(0, 102, 204, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <i class="fab fa-whatsapp" style="color: var(--primary-blue); font-size: 20px;"></i>
-                            </div>
-                            <div>
-                                <h3 style="font-size: 18px; margin-bottom: 10px; color: var(--text-dark);">WhatsApp</h3>
-                                <p style="margin: 0;"><a href="https://wa.me/919111431431" target="_blank" style="color: var(--primary-blue); font-weight: 600;">+91 91114 31431</a></p>
-                            </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>WhatsApp</h3>
+                            <p><a href="https://wa.me/919111431431" target="_blank">+91 91114 31431</a></p>
                         </div>
                     </div>
 
-                    <div style="background: var(--white); padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow-sm);">
-                        <div style="display: flex; align-items: flex-start; gap: 20px;">
-                            <div style="width: 50px; height: 50px; background: rgba(0, 102, 204, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <i class="fas fa-envelope" style="color: var(--primary-blue); font-size: 20px;"></i>
-                            </div>
-                            <div>
-                                <h3 style="font-size: 18px; margin-bottom: 10px; color: var(--text-dark);">Email Address</h3>
-                                <p style="margin: 0;"><a href="mailto:khanidea07@gmail.com" style="color: var(--primary-blue); font-weight: 600;">khanidea07@gmail.com</a></p>
-                            </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email Address</h3>
+                            <p><a href="mailto:khanidea07@gmail.com">khanidea07@gmail.com</a></p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Contact Form -->
-                <div class="contact-form-wrapper" data-aos="fade-left" style="background: var(--white); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow-md);">
+                <div class="contact-form-wrapper" data-aos="fade-left">
                     <form class="contact-form" id="contactForm">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
-                            <div>
-                                <input type="text" name="name" placeholder="Your Name *" required style="width: 100%; padding: 14px 18px; border: 2px solid var(--border-color); border-radius: var(--radius); font-size: 14px; transition: var(--transition); font-family: inherit;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Your Name *" required>
                             </div>
-                            <div>
-                                <input type="tel" name="phone" placeholder="Phone Number *" required style="width: 100%; padding: 14px 18px; border: 2px solid var(--border-color); border-radius: var(--radius); font-size: 14px; transition: var(--transition); font-family: inherit;">
+                            <div class="form-group">
+                                <input type="tel" name="phone" placeholder="Phone Number *" required>
                             </div>
                         </div>
-                        <div style="margin-bottom: 20px;">
-                            <input type="email" name="email" placeholder="Email Address *" required style="width: 100%; padding: 14px 18px; border: 2px solid var(--border-color); border-radius: var(--radius); font-size: 14px; transition: var(--transition); font-family: inherit;">
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Email Address *" required>
                         </div>
-                        <div style="margin-bottom: 20px;">
-                            <select name="property-type" required style="width: 100%; padding: 14px 18px; border: 2px solid var(--border-color); border-radius: var(--radius); font-size: 14px; transition: var(--transition); font-family: inherit; color: var(--text-dark);">
+                        <div class="form-group">
+                            <select name="property-type" required>
                                 <option value="">Interested In *</option>
                                 <option value="flat">Flat</option>
                                 <option value="house">House</option>
@@ -669,32 +304,13 @@
                                 <option value="plot">Plot</option>
                             </select>
                         </div>
-                        <div style="margin-bottom: 20px;">
-                            <textarea name="message" rows="5" placeholder="Your Message *" required style="width: 100%; padding: 14px 18px; border: 2px solid var(--border-color); border-radius: var(--radius); font-size: 14px; transition: var(--transition); font-family: inherit; resize: vertical;"></textarea>
+                        <div class="form-group">
+                            <textarea name="message" rows="5" placeholder="Your Message *" required></textarea>
                         </div>
-                        <button type="submit" class="btn-primary btn-lg" style="width: 100%;">
+                        <button type="submit" class="btn-primary btn-lg">
                             <i class="fas fa-paper-plane"></i> Send Message
                         </button>
                     </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content" data-aos="zoom-in">
-                <h2>Ready to Find Your Dream Property?</h2>
-                <p>Let us help you discover the perfect space that fits your needs and budget</p>
-                <div class="cta-buttons">
-                    <a href="#properties" class="btn-white btn-lg">
-                        <i class="fas fa-building"></i> Browse Properties
-                    </a>
-                    <a href="https://wa.me/919111431431?text=Hi%20KK%20Enterprises,%20I%20need%20help%20finding%20a%20property" 
-                       class="btn-outline-white btn-lg" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-                    </a>
                 </div>
             </div>
         </div>
@@ -712,7 +328,7 @@
                             <div class="logo-tagline">Your Property Partner</div>
                         </div>
                     </div>
-                    <p class="footer-description" style="font-size: 14px; line-height: 1.7; margin-bottom: 20px;">
+                    <p class="footer-description">
                         Your trusted real estate partner in Indore, providing premium properties 
                         with complete transparency and customer satisfaction.
                     </p>
@@ -729,7 +345,6 @@
                     <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#properties">Properties</a></li>
-                        <li><a href="#services">Services</a></li>
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -768,10 +383,9 @@
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
                     <p>&copy; 2025 KK Enterprises. All Rights Reserved.</p>
-                    <div class="footer-links">
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms & Conditions</a>
-                    </div>
+                    <p class="footer-credit">
+                        Design & Developed by <a href="https://theunlocksales.github.io/theunlocksales/" target="_blank" rel="noopener">The Unlock Sales</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -781,6 +395,4 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="propertyscript.js"></script>
 </body>
-
 </html>
-
