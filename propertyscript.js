@@ -217,30 +217,40 @@ The flat includes all modern amenities, modular kitchen, branded appliances, and
             "Lift", "Security", "Power Backup", "Water Supply", "Parking"
         ]
     },
-
-
-
     {
-    id: 7,
-    title: "750SQft plot",
-    category: "house", // flat, house, shop, office, plot
-    price: "₹45 Lakhs",
-    location: "jivan jyoti colony,sagor kuti pithampur",
-    badge: "Hot Deal",
-    badgeClass: "hot",
-    image: "YOUR_IMAGE_URL",
-    beds: 2,
-    baths: 2,
-    area: "1000 sq.ft",
-    description: `Property description here`,
-    gallery: ["IMG1", "IMG2", "IMG3"],
-    videos: ["href="house1.mp4"],
-    details: {
-        "Property Type": "house",
-        "Status": "Ready to Move"
-    },
-    amenities: ["26400rs rent", "2250 construction", "complete"]
-},
+        id: 7,
+        title: "750SQft plot",
+        category: "house",
+        price: "₹45 Lakhs",
+        location: "jivan jyoti colony,sagor kuti pithampur",
+        badge: "For Sale",
+        badgeClass: "",
+        image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800",
+        beds: 12,
+        baths: 12,
+        area: "2250 sq.ft",
+        description: `house for sale, running 22000rs rent monthly.
+
+The flat includes all modern amenities, modular kitchen, branded appliances, and stylish furniture. Located in a well-maintained society with 24/7 security, power backup, and lift facility.`,
+        gallery: [
+           /*   "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800",
+            "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800",
+            "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800" */
+        ],
+        videos: ["video.mp4"],
+        details: {
+            "Property Type": "Rented House",
+            "Status": "Available",
+            "Furnishing": "Un Furnished",
+           /* "Floor": "5th Floor of 8",  */
+         /*   "Facing": "South",   */
+       /*     "Parking": "1 Covered",   */
+      /*      "Age": "3 Years"   */
+        },
+        amenities: [
+            "26400rs rent", "2250 construction", "complete"
+        ]
+    }
 ];
 
 // ===================================
@@ -654,6 +664,7 @@ function setupSmoothScroll() {
         });
     });
 }
+
 
 
 
