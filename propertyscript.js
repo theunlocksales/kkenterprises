@@ -225,7 +225,8 @@ The flat includes all modern amenities, modular kitchen, branded appliances, and
         location: "jivan jyoti colony,sagor kuti pithampur",
         badge: "For Sale",
         badgeClass: "",
-        image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800",
+    /*     image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800", */
+        video: "video.mp4",
         beds: 12,
         baths: 12,
         area: "2250 sq.ft",
@@ -664,6 +665,7 @@ function setupSmoothScroll() {
         });
     });
 }
+
 
 
 
