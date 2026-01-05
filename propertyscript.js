@@ -217,6 +217,29 @@ The flat includes all modern amenities, modular kitchen, branded appliances, and
             "Lift", "Security", "Power Backup", "Water Supply", "Parking"
         ]
     }
+
+
+    {
+    id: 7,
+    title: "750SQft plot",
+    category: "house", // flat, house, shop, office, plot
+    price: "₹45 Lakhs",
+    location: "jivan jyoti colony,sagor kuti pithampur",
+    badge: "Hot Deal",
+    badgeClass: "hot",
+    image: "YOUR_IMAGE_URL",
+    beds: 2,
+    baths: 2,
+    area: "1000 sq.ft",
+    description: `Property description here`,
+    gallery: ["IMG1", "IMG2", "IMG3"],
+    videos: ["href="house1.mp4"],
+    details: {
+        "Property Type": "house",
+        "Status": "Ready to Move"
+    },
+    amenities: ["26400rs rent", "2250 construction", "complete"]
+},
 ];
 
 // ===================================
@@ -635,25 +658,6 @@ function setupSmoothScroll() {
 
 
 
-{
-    id: 7,
-    title: "750SQft plot",
-    category: "house", // flat, house, shop, office, plot
-    price: "₹45 Lakhs",
-    location: "jivan jyoti colony,sagor kuti pithampur",
-    badge: "Hot Deal",
-    badgeClass: "hot",
-    image: "YOUR_IMAGE_URL",
-    beds: 2,
-    baths: 2,
-    area: "1000 sq.ft",
-    description: `Property description here`,
-    gallery: ["IMG1", "IMG2", "IMG3"],
-    videos: ["href="house1.mp4"],
-    details: {
-        "Property Type": "house",
-        "Status": "Ready to Move"
-    },
-    amenities: ["26400rs rent", "2250 construction", "complete"]
-},
+
+
 
