@@ -216,7 +216,8 @@ The flat includes all modern amenities, modular kitchen, branded appliances, and
             "Fully Furnished", "AC", "Geyser", "Modular Kitchen",
             "Lift", "Security", "Power Backup", "Water Supply", "Parking"
         ]
-    }
+    },
+
 
 
     {
@@ -653,6 +654,7 @@ function setupSmoothScroll() {
         });
     });
 }
+
 
 
 
